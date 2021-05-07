@@ -18,7 +18,7 @@ push: ## Push image to ghcr
 force-build:## Force Build the image
 	docker build --no-cache -t $(APP_NAME):$(VERSION) .
 run: ## Run container with `config.env`
-	docker start $(APP_NAME) || docker run -d -v ${PWD}:/usr/bin/bd/fs --network ${NETWORK} -p 8080:8080 -p 8081:8081 -p 9870:9870 -p 9864:9864 -p 9866:9866 -p 9867:9867 -p 9868:9868 -p 9000:9000 --hostname $(HOSTNAME) --restart=always --name $(APP_NAME) $(APP_NAME):$(VERSION)
+	docker start $(APP_NAME) || docker run -d -v ${PWD}:/usr/bin/bd/fs --network ${NETWORK} -p 4040:4040 -p 8080:8080 -p 8081:8081 -p 9870:9870 -p 9864:9864 -p 9866:9866 -p 9867:9867 -p 9868:9868 -p 9000:9000 --hostname $(HOSTNAME) --restart=always --name $(APP_NAME) $(APP_NAME):$(VERSION)
 stop: ## Stop the hadoop container
 	docker stop $(APP_NAME)
 rm: ## Remove the hadoop container
